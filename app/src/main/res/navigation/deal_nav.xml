@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/deal_nav"
+    app:startDestination="@id/dealListFragment">
+
+    <fragment
+        android:id="@+id/dealListFragment"
+        android:name="com.target.targetcasestudy.ui.dealslist.DealListFragment"
+        android:label="Select Item"
+        tools:layout="@layout/fragment_deal_list" >
+        <action
+            android:id="@+id/action_dealListFragment_to_dealItemFragment"
+            app:destination="@id/dealItemFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/dealItemFragment"
+        android:name="com.target.targetcasestudy.ui.details.DealItemFragment"
+        android:label="Item Details" />
+</navigation>

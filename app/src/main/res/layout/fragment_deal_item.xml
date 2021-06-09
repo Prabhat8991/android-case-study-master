@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+  <data>
+    <variable
+        name="dealItem"
+        type="com.target.targetcasestudy.domain.model.response.DealDomainModel" />
+  </data>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.details.DealItemFragment">
+
+  <ImageView
+      android:id="@+id/dealImage"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      app:imageUrl="@{dealItem.image_url}"
+      app:layout_constraintBottom_toTopOf="@+id/textViewPrice"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_bias="0.0"
+      tools:src="@tools:sample/avatars" />
+
+  <TextView
+      android:id="@+id/textViewPrice"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@{dealItem.displayPrice}"
+      android:textAppearance="@style/TextAppearance.AppCompat.Large"
+      android:textColor="@color/red_color"
+      app:layout_constraintBottom_toTopOf="@+id/textViewTitle"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.0"
+      app:layout_constraintStart_toStartOf="parent" />
+
+  <TextView
+      android:id="@+id/textViewTitle"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@{dealItem.title}"
+      app:layout_constraintBottom_toTopOf="@+id/textViewDescription"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.0"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintVertical_bias="1.0" />
+
+  <TextView
+      android:id="@+id/textViewDescription"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@{dealItem.description}"
+      app:layout_constraintBottom_toTopOf="@+id/button"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.0"
+      android:singleLine="true"
+      android:maxLength="20"
+      app:layout_constraintStart_toStartOf="parent" />
+
+  <Button
+      android:id="@+id/button2"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:background="@color/button_red"
+      android:text="@string/add_to_cart"
+      android:textColor="@color/textColorWhite"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.5"
+      app:layout_constraintStart_toEndOf="@+id/button" />
+
+  <Button
+      android:id="@+id/button"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:text="@string/add_to_list"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toStartOf="@+id/button2"
+      app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
