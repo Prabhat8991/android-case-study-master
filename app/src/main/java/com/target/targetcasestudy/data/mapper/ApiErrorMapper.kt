@@ -12,7 +12,7 @@ import java.net.SocketTimeoutException
 import java.net.UnknownHostException
 import javax.inject.Inject
 
-class ApiErrorMapper @Inject constructor(private val gson: Gson) {
+open class ApiErrorMapper @Inject constructor(private val gson: Gson) {
 
     fun mapToDomainErrorException(throwable: Throwable?): ErrorModel {
         return when (throwable) {

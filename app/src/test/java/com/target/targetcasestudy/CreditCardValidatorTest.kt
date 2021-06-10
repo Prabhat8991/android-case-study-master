@@ -1,8 +1,10 @@
 package com.target.targetcasestudy
 
-import com.target.targetcasestudy.data.validateCreditCard
+import android.service.autofill.Validators
+import com.target.targetcasestudy.core.validateCreditCard
 import org.junit.Assert
 import org.junit.Test
+import javax.xml.validation.Validator
 
 /**
  * Feel free to make modifications to these unit tests! Remember, you have full technical control

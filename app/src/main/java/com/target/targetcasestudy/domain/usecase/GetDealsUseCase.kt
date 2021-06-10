@@ -8,8 +8,9 @@ import javax.inject.Inject
 
 class GetDealsUseCase @Inject constructor(
     apiErrorMapper: ApiErrorMapper,
-    private val dealsRepository: DealsRepository
-): BaseUseCase<List<DealNetworkModel>>(apiErrorMapper) {
+    private val dealsRepository: DealsRepository,
+    private val dispatcherProvider : DispatcherProvider = DefaultDispatcherProvider()
+): BaseUseCase<List<DealNetworkModel>>(apiErrorMapper, dispatcherProvider) {
 
     override suspend fun executionOnBackGround(): List<DealNetworkModel> {
         return dealsRepository.refreshDeals()?: emptyList()

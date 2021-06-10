@@ -2,16 +2,18 @@ package com.target.targetcasestudy.domain.usecase.base
 
 import com.target.targetcasestudy.data.mapper.ApiErrorMapper
 import com.target.targetcasestudy.domain.model.response.ErrorModel
+import com.target.targetcasestudy.domain.usecase.DefaultDispatcherProvider
+import com.target.targetcasestudy.domain.usecase.DispatcherProvider
 import kotlinx.coroutines.*
 import java.lang.Exception
 import kotlin.coroutines.CoroutineContext
 
 typealias CompletionBlock<T> = BaseUseCase.Request<T>.() -> Unit
 
-abstract class BaseUseCase<T>(val apiErrorMapper: ApiErrorMapper? = null) {
+abstract class BaseUseCase<T>(val apiErrorMapper: ApiErrorMapper? = null, private val dispatchers: DispatcherProvider = DefaultDispatcherProvider()) {
     private var parentJob: Job = Job()
-    var backgroundContext: CoroutineContext = Dispatchers.IO
-    var foregroundContext: CoroutineContext = Dispatchers.Main
+    var backgroundContext: CoroutineContext = dispatchers.io()
+    var foregroundContext: CoroutineContext = dispatchers.main()
 
     protected abstract suspend fun executionOnBackGround(): T
 
