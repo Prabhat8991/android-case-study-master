@@ -13,6 +13,6 @@ class GetDealsUseCase @Inject constructor(
 ): BaseUseCase<List<DealNetworkModel>>(apiErrorMapper, dispatcherProvider) {
 
     override suspend fun executionOnBackGround(): List<DealNetworkModel> {
-        return dealsRepository.refreshDeals()?: emptyList()
+        return dealsRepository.refreshDeals()
     }
 }

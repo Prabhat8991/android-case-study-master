@@ -1,21 +1,15 @@
 package com.target.targetcasestudy.domain.usecase
 
-import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.target.targetcasestudy.TestCoroutineRule
 import com.target.targetcasestudy.data.mapper.ApiErrorMapper
 import com.target.targetcasestudy.data.repository.DealsRepository
 import com.target.targetcasestudy.domain.model.response.AmountDetails
 import com.target.targetcasestudy.domain.model.response.DealNetworkModel
-import com.target.targetcasestudy.domain.model.response.asDatabaseModel
 import io.mockk.coEvery
 import io.mockk.mockk
-import junit.framework.Assert
 import junit.framework.Assert.assertEquals
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 import kotlinx.coroutines.newSingleThreadContext
-import kotlinx.coroutines.test.TestCoroutineDispatcher
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runBlockingTest
 import kotlinx.coroutines.test.setMain
@@ -25,9 +19,6 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mock
-import org.mockito.Mockito
-import org.mockito.Mockito.`when`
-import org.mockito.Mockito.doReturn
 import org.mockito.junit.MockitoJUnitRunner
 
 @RunWith(MockitoJUnitRunner::class)
@@ -42,7 +33,6 @@ class GetDealsUseCaseTest {
     lateinit var  getDealsUseCase: GetDealsUseCase
 
     private val mainThreadSurrogate = newSingleThreadContext("UI thread")
-
 
     @Before
     fun init() {
