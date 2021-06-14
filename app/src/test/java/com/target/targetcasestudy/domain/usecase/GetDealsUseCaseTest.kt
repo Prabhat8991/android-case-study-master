@@ -32,19 +32,6 @@ class GetDealsUseCaseTest {
 
     lateinit var  getDealsUseCase: GetDealsUseCase
 
-    private val mainThreadSurrogate = newSingleThreadContext("UI thread")
-
-    @Before
-    fun init() {
-        Dispatchers.setMain(mainThreadSurrogate)
-    }
-
-    @After
-    fun tearDown() {
-        Dispatchers.resetMain() // reset main dispatcher to the original Main dispatcher
-        mainThreadSurrogate.close()
-    }
-
     @Test
     fun `test when get deals api return success`() {
         var result = 0

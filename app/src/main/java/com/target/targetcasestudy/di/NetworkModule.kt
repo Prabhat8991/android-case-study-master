@@ -20,6 +20,7 @@ import javax.inject.Singleton
 @Module
 class NetworkModule {
 
+    @Singleton
     @Provides
     fun providesRetrofit(
         gsonConverterFactory: GsonConverterFactory,
@@ -32,6 +33,7 @@ class NetworkModule {
             .build()
     }
 
+    @Singleton
     @Provides
     fun provideOkHttpClient(): OkHttpClient {
         val client = OkHttpClient.Builder()

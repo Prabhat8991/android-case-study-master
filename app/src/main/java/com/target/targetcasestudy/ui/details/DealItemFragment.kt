@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
 import com.target.targetcasestudy.databinding.FragmentDealItemBinding
 import com.target.targetcasestudy.ui.dealslist.DealsViewModel
 import dagger.android.support.DaggerFragment
@@ -23,7 +22,7 @@ class DealItemFragment : DaggerFragment() {
   ): View {
     // Inflate the layout for this fragment
     val binding = FragmentDealItemBinding.inflate(inflater)
-    val viewModel = ViewModelProviders.of(requireActivity(), viewModelFactory).get(DealsViewModel::class.java)
+    val viewModel = ViewModelProvider(requireActivity(), viewModelFactory).get(DealsViewModel::class.java)
     binding.dealItem = viewModel.selectedDealModel.value
     binding.executePendingBindings()
     return binding.root

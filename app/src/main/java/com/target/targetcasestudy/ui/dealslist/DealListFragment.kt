@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.target.targetcasestudy.R
@@ -24,7 +23,7 @@ class DealListFragment : DaggerFragment() {
     savedInstanceState: Bundle?
   ): View {
     val binding = FragmentDealListBinding.inflate(inflater)
-    val viewModel = ViewModelProviders.of(requireActivity(), viewModelFactory).get(DealsViewModel::class.java)
+    val viewModel = ViewModelProvider(requireActivity(), viewModelFactory).get(DealsViewModel::class.java)
     viewModel.dealDomainModel.observe(requireActivity(), Observer {
       binding.recyclerView.adapter = DealItemAdapter(it, onDealClickListener = OnDealsClickListener {dealDomainModel ->
         viewModel.setSelectedDealModel(dealDomainModel)

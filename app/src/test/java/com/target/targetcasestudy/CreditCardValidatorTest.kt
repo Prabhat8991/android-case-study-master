@@ -24,4 +24,12 @@ class CreditCardValidatorTest {
       validateCreditCard("453997674151204")
     )
   }
+
+  @Test
+  fun `test when credit card number empty`() {
+    Assert.assertFalse(
+      "valid credit card number should yield false",
+      validateCreditCard("")
+    )
+  }
 }

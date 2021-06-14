@@ -12,7 +12,7 @@ class GetDealsUseCase @Inject constructor(
     private val dispatcherProvider : DispatcherProvider = DefaultDispatcherProvider()
 ): BaseUseCase<List<DealNetworkModel>>(apiErrorMapper, dispatcherProvider) {
 
-    override suspend fun executionOnBackGround(): List<DealNetworkModel> {
+    public override suspend fun executionOnBackGround(): List<DealNetworkModel> {
         return dealsRepository.refreshDeals()
     }
 }
