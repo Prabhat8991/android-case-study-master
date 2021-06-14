@@ -45,7 +45,7 @@ class DealsViewModel @Inject constructor(
         insertUseCase.dealDatabaseModelList = listOfDealDatabaseModel
         insertUseCase.execute {
             onComplete {
-
+             Log.v("DB", "DB updated")
             }
         }
     }
