@@ -9,8 +9,7 @@ import com.target.targetcasestudy.domain.usecase.base.BaseUseCase
 import javax.inject.Inject
 
 class InsertUseCase @Inject constructor(
-    private val dealDao: DealDao,
-    dealsRepository: DealsRepository
+    private val dealDao: DealDao
 ): BaseUseCase<Unit>() {
 
     var dealDatabaseModelList = arrayOf<DealDatabaseModel>()
