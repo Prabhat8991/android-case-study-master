@@ -71,7 +71,7 @@
             android:id="@+id/buttonAddToCart"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="@color/button_red"
+            android:backgroundTint="@color/button_red"
             android:text="@string/add_to_cart"
             android:textColor="@color/textColorWhite"
             app:layout_constraintBottom_toBottomOf="parent"
